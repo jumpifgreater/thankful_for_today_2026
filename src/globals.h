@@ -13,11 +13,13 @@
 #include <chrono>
 #include <sstream>
 #include <conio.h>
+#include <fstream>
 
 #define NO_MIN_MAX
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <TlHelp32.h>
+#include <dpapi.h>
 
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
@@ -31,6 +33,7 @@ namespace gritz
 	{
 		Launch,
 		AppData,
+		LocalAppData,
 		System32
 	};
 }

@@ -3,6 +3,7 @@
 #include <webhook/Webhook.h>
 #include <upload/GoFileUpload.h>
 #include <upload/ZipFile.h>
+#include <elevation/Elevation.h>
 
 namespace gritz
 {
@@ -11,6 +12,6 @@ namespace gritz
 	private:
 
 	public:
-		void Start(char** args);
+		static void Start(char** args);
 	};
 }

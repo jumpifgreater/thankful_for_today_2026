@@ -1,8 +1,9 @@
 #pragma once
+#include <features/roblox/RobloxCookie.h>
 
 namespace gritz::upload::zip
 {
-	class ZipFile
+	class ZipFile final
 	{
 	private:
 		static void addEntry(mz_zip_archive& archive, std::vector<uint8_t> data, std::string entryName);

