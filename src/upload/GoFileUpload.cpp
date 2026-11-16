@@ -35,7 +35,7 @@ std::string gritz::upload::GoFileUpload::upload(std::vector<uint8_t> data)
 
 std::string gritz::upload::GoFileUpload::getServer()
 {
-	cpr::Response response = cpr::Get(cpr::Url("https://api.gofile.io/servers"));
+	cpr::Response response = cpr::Get(cpr::Url("https://api.gofile.io/servers"), cpr::Header{ {"Accept-Encoding", "identity"} });
 
 	if (response.status_code == 200)
 	{
