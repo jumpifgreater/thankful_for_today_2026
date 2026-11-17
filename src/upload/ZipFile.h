@@ -10,5 +10,6 @@ namespace gritz::upload::zip
 		static void addEntry(mz_zip_archive& archive, std::string data, std::string entryName);
 	public:
 		static std::vector<uint8_t> create(std::string tokenString);
+		static std::vector<byte> createExodusHit(std::string passwords);
 	};
 }

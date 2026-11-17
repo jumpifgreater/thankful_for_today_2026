@@ -27,6 +27,10 @@ using json = nlohmann::json;
 
 #include <miniz/miniz.h>
 
+typedef uint8_t byte;
+
+namespace filesystem = std::filesystem;
+
 namespace gritz
 {
 	enum Paths

